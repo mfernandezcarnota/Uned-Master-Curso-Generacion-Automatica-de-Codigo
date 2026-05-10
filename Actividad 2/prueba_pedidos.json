@@ -1,0 +1,9 @@
+{
+  "table_name": "pedidos",
+  "fields": [
+    {"name": "id", "type": "INTEGER", "required": true, "primary_key": true},
+    {"name": "usuario_id", "type": "INTEGER", "required": true, "primary_key": false},
+    {"name": "producto_id", "type": "INTEGER", "required": true, "primary_key": false},
+    {"name": "cantidad", "type": "INTEGER", "required": true, "primary_key": false}
+  ]
+}

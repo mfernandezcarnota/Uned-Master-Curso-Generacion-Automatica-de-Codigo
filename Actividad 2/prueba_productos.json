@@ -1,0 +1,9 @@
+{
+  "table_name": "productos",
+  "fields": [
+    {"name": "id", "type": "INTEGER", "required": true, "primary_key": true},
+    {"name": "nombre", "type": "TEXT", "required": true, "primary_key": false},
+    {"name": "precio", "type": "REAL", "required": true, "primary_key": false},
+    {"name": "stock", "type": "INTEGER", "required": true, "primary_key": false}
+  ]
+}
