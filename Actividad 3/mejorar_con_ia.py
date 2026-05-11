@@ -104,7 +104,7 @@ def main() -> None:
     )
     parser.add_argument(
         "--model",
-        default="claude-sonnet-4-20250514",
+        default="claude-3-5-sonnet-latest",
         help="Modelo de Anthropic a utilizar.",
     )
     args = parser.parse_args()

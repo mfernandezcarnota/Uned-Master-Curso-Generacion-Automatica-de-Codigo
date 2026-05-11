@@ -374,9 +374,7 @@ let
     // (Opciones -> Seguridad -> Permitir acceso a fuentes de datos locales)
     // o configurar correctamente las credenciales del origen de datos.
     // ========================================================================
-    // IMPORTANTE: sustituye esta ruta por la ruta absoluta real donde esté
-    // la carpeta "Actividad 3" en tu equipo antes de ejecutar en Power Query.
-    RutaBase = "C:/RUTA/ABSOLUTA/DEL/PROYECTO",
+    RutaBase = ".",
     RutaMetadatos = RutaBase & "/Actividad 3/metadatos_crud.json",
     RutaSentencias = RutaBase & "/Actividad 3/pruebas/crud_01_create.mtxt",
 

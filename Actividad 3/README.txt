@@ -33,9 +33,12 @@ El objetivo académico es demostrar una transformación de programas:
 - salidas_esperadas/*.py
   Resultados Python esperados para cada prueba.
 
+<<<<<<< codex/create-folder-for-actividad-3-development-0jt8j9
 - salidas_esperadas/*.java
   Resultados Java esperados para cada prueba.
 
+=======
+>>>>>>> main
 3) CÓMO USAR EL PROGRAMA PASO A PASO (DETALLADO)
 ------------------------------------------------
 Objetivo práctico:
@@ -72,8 +75,11 @@ Paso 2. Generar el código Python desde M:
   2.5) Sustituye:
        - SentenciasDemo por tu colección de sentencias M.
        - MetadataDemo por tus metadatos.
+<<<<<<< codex/create-folder-for-actividad-3-development-0jt8j9
        - RutaBase por la ruta absoluta real del proyecto en tu equipo
          (ejemplo: C:/Users/TuUsuario/Uned-Master-Curso-...).
+=======
+>>>>>>> main
   2.6) Ejecuta la consulta: el resultado será un texto largo con el script
        Python generado.
 
@@ -91,9 +97,12 @@ Paso 4. Verificar con pruebas CRUD incluidas:
   - READ:   pruebas/crud_02_read.mtxt
   - UPDATE/DELETE lógico (filtros + cálculos): pruebas/crud_03_update_delete.mtxt
   - Compara la salida generada con los ejemplos de "salidas_esperadas/".
+<<<<<<< codex/create-folder-for-actividad-3-development-0jt8j9
   - También puedes validar salida Java cambiando en metadatos:
       "opciones": { "lenguaje_salida": "java" }
     y comparando con los ficheros .java de salidas_esperadas.
+=======
+>>>>>>> main
 
 4) EXPLICACIÓN SENCILLA DE CADA BLOQUE/SECCIÓN DEL CÓDIGO
 ----------------------------------------------------------
