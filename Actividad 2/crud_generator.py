@@ -121,14 +121,6 @@ class CRUDGenerator:
         """Genera el código fuente completo del programa CRUD."""
         fields_literal = self._sql_fields_literal()
         table_name = self.metadata.table_name
-        if self.db_type == "sqlite":
-            db_config_literal = '{"database": str(base_dir / "crud_generated.db")}'
-        else:
-            db_config_literal = (
-                '{"host": "localhost", "port": 5432, '
-                '"user": "tu_usuario", "password": "tu_password", '
-                '"dbname": "tu_base_de_datos"}'
-            )
 
         # Nota: este template es el programa CRUD final generado.
         return f'''#!/usr/bin/env python3
@@ -351,7 +343,7 @@ def main() -> None:
     base_dir = Path(__file__).parent
     service = CRUDService(
         db_type={self.db_type!r},
-        db_config={db_config_literal},
+        db_config={{"database": str(base_dir / "crud_generated.db")}},
         language={self.language!r},
         custom_validators=load_custom_validators(str(base_dir / "custom_validations.py")),
     )
