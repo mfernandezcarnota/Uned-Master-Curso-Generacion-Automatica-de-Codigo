@@ -1,0 +1,9 @@
+{
+  "table_name": "usuarios",
+  "fields": [
+    {"name": "id", "type": "INTEGER", "required": true, "primary_key": true},
+    {"name": "nombre", "type": "TEXT", "required": true, "primary_key": false},
+    {"name": "edad", "type": "INTEGER", "required": false, "primary_key": false},
+    {"name": "email", "type": "TEXT", "required": false, "primary_key": false}
+  ]
+}
