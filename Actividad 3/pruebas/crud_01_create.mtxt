@@ -1,0 +1,5 @@
+Csv.Document("ventas_csv")
+Table.AddColumn("importe_total","cantidad","*","precio")
+Table.AddColumn("impuesto","importe_total","*","0.21")
+Table.SelectColumns({"producto","cantidad","precio","importe_total","impuesto"})
+Table.Sort("importe_total","DESC")

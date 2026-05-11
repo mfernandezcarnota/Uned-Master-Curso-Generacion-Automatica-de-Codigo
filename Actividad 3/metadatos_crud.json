@@ -1,0 +1,14 @@
+{
+  "fuentes": {
+    "clientes_csv": "./datos/clientes.csv",
+    "ventas_csv": "./datos/ventas.csv",
+    "inventario_csv": "./datos/inventario.csv"
+  },
+  "destino": {
+    "archivo_salida": "./salida/resultado_crud.csv"
+  },
+  "opciones": {
+    "lenguaje_salida": "python",
+    "motor_dataframe": "pandas"
+  }
+}

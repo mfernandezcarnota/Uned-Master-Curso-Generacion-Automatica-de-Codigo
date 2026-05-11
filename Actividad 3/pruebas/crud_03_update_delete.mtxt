@@ -1,0 +1,5 @@
+Csv.Document("inventario_csv")
+Table.SelectRows("stock",">","0")
+Table.AddColumn("stock_seguridad","stock","-","5")
+Table.SelectRows("stock_seguridad",">","0")
+Table.SelectColumns({"sku","descripcion","stock","stock_seguridad"})

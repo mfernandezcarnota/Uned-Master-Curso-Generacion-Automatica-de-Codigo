@@ -1,0 +1,5 @@
+Csv.Document("clientes_csv")
+Table.SelectRows("pais","==","ES")
+Table.SelectRows("activo","==","1")
+Table.SelectColumns({"id_cliente","nombre","email","pais"})
+Table.Sort("nombre","ASC")
