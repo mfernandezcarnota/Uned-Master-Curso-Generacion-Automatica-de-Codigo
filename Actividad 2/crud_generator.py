@@ -96,9 +96,12 @@ def load_metadata(path: Path) -> TableMeta:
 # a partir de metadatos.
 # ============================================================
 class CRUDGenerator:
-    def __init__(self, metadata: TableMeta, language: str = "es") -> None:
+    def __init__(self, metadata: TableMeta, language: str = "es", db_type: str = "sqlite") -> None:
         self.metadata = metadata
         self.language = language if language in GENERATOR_MESSAGES else "es"
+        self.db_type = db_type.lower()
+        if self.db_type not in {"sqlite", "postgresql"}:
+            raise ValueError("db_type debe ser 'sqlite' o 'postgresql'.")
 
     def _sql_fields_literal(self) -> str:
         """Convierte los campos metadata en una lista literal Python."""
@@ -339,9 +342,9 @@ def run_menu(service: CRUDService) -> None:
 def main() -> None:
     base_dir = Path(__file__).parent
     service = CRUDService(
-        db_type="sqlite",
+        db_type={self.db_type!r},
         db_config={{"database": str(base_dir / "crud_generated.db")}},
-        language="es",
+        language={self.language!r},
         custom_validators=load_custom_validators(str(base_dir / "custom_validations.py")),
     )
     service.initialize_table()
@@ -368,7 +371,8 @@ def msg(language: str, key: str) -> str:
 
 
 def main() -> None:
-    language = "es"
+    selected_language = input("Selecciona idioma del generador (es/en): ").strip().lower()
+    language = selected_language if selected_language in {"es", "en"} else "es"
     base_dir = Path(__file__).parent
     active_metadata_path = base_dir / "prueba_usuarios.json"
 
@@ -379,12 +383,14 @@ def main() -> None:
         if option == "1":
             input_metadata = input(f"{msg(language, 'enter_metadata')}: ").strip()
             input_output = input(f"{msg(language, 'enter_output')}: ").strip()
+            input_db_type = input("SGBD del CRUD generado (sqlite/postgresql): ").strip().lower()
+            db_type = input_db_type if input_db_type in {"sqlite", "postgresql"} else "sqlite"
 
             metadata_path = Path(input_metadata) if input_metadata else active_metadata_path
             output_path = Path(input_output) if input_output else (base_dir / "crud_app_generado.py")
 
             metadata = load_metadata(metadata_path)
-            generator = CRUDGenerator(metadata=metadata, language=language)
+            generator = CRUDGenerator(metadata=metadata, language=language, db_type=db_type)
             generated = generator.generate_file(output_path)
             print(f"{msg(language, 'generated_ok')} {generated}")
 
